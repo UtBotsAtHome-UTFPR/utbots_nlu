@@ -1,0 +1,8 @@
+version: "3.1"
+
+rules:
+
+- rule: Introduce itself anytime the user inquires the identity of the robot
+  steps:
+  - intent: introduce_robot
+  - action: utter_introduce_robot

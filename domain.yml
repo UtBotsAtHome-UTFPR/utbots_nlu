@@ -1,0 +1,38 @@
+version: "3.1"
+
+intents:
+  - greet
+  - introduce_robot
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - follow
+  - stop
+  - go_to
+  - identify_operator
+
+entities:
+  - object
+  - person
+  - room
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_introduce_robot:
+  - text: "I am Apollo, a service robot developed by graduates, undergraduates and professors at the Federal University of Technology, located in Paraná, Brazil"
+
+  utter_happy:
+  - text: "It is great to hear that!"
+
+  utter_sad:
+  - text: "I am sorry to hear that!"
+
+  utter_ask_name:
+  - text: "What is your name?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
