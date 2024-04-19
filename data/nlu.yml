@@ -111,6 +111,8 @@ nlu:
     - do you recognize me?
     - do you know me?
     - who is he?
+    - what is my name?
+    - do you know my name?
 
 - intent: say_operator_name
   examples: |

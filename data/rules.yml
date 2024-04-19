@@ -7,4 +7,9 @@ rules:
   - intent: introduce_robot
   - action: utter_introduce_robot
 
+- rule: Ask operator name
+  steps:
+  - intent: identify_operator
+  - action: utter_ask_name
+
 
