@@ -92,9 +92,18 @@ nlu:
 
 - intent: go_to
   examples: |
-    - go to
-    - drive to
-    - navigate to
+    - go to the [kitchen](room)
+    - drive to the [kitchen](room)
+    - navigate to the [kitchen](room)
+    - go to the [living room](room)
+    - drive to the [living room](room)
+    - navigate to the [living room](room)
+    - go to the [bedroom](room)
+    - drive to the [bedroom](room)
+    - navigate to the [bedroom](room)
+    - go to the [office](room)
+    - drive to the [office](room)
+    - navigate to the [office](room)
 
 - intent: identify_operator
   examples: |
@@ -102,3 +111,63 @@ nlu:
     - do you recognize me?
     - do you know me?
     - who is he?
+
+- intent: say_operator_name
+  examples: |
+    - My name is [James](person) 
+    - My name is [Robert](person)
+    - My name is [John](person)
+    - My name is [Michael](person)
+    - My name is [David](person)
+    - My name is [William](person)
+    - My name is [Richard](person)
+    - My name is [Joseph](person)
+    - My name is [Thomas](person)
+    - My name is [Charles](person)
+    -I am [James](person) 
+    -I am [Robert](person)
+    -I am [John](person)
+    -I am [Michael](person)
+    -I am [David](person)
+    -I am [William](person)
+    -I am [Richard](person)
+    -I am [Joseph](person)
+    -I am [Thomas](person)
+    -I am [Charles](person)
+    - [James](person) 
+    - [Robert](person)
+    - [John](person)
+    - [Michael](person)
+    - [David](person)
+    - [William](person)
+    - [Richard](person)
+    - [Joseph](person)
+    - [Thomas](person)
+    - [Charles](person)
+    - My name is [Mary](person)
+    - My name is [Patricia](person)
+    - My name is [Jennifer](person)
+    - My name is [Linda](person)
+    - My name is [Elizabeth](person)
+    - My name is [Barbara](person)
+    - My name is [Susan](person)
+    - My name is [Jessica](person)
+    - My name is [Sarah](person)
+    -I am [Mary](person)
+    -I am [Patricia](person)
+    -I am [Jennifer](person)
+    -I am [Linda](person)
+    -I am [Elizabeth](person)
+    -I am [Barbara](person)
+    -I am [Susan](person)
+    -I am [Jessica](person)
+    -I am [Sarah](person)
+    - [Mary](person)
+    - [Patricia](person)
+    - [Jennifer](person)
+    - [Linda](person)
+    - [Elizabeth](person)
+    - [Barbara](person)
+    - [Susan](person)
+    - [Jessica](person)
+    - [Sarah](person)

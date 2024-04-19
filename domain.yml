@@ -11,11 +11,19 @@ intents:
   - stop
   - go_to
   - identify_operator
+  - say_operator_name
 
 entities:
   - object
   - person
   - room
+
+# slots:
+#   room:
+#     type: text
+#     influence_conversation: false
+#   confirm:
+#     type: boolean
 
 responses:
   utter_greet:

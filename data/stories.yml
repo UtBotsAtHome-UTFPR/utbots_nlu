@@ -24,3 +24,8 @@ stories:
   - action: utter_introduce_robot
   - intent: identify_operator
   - action: utter_ask_name
+
+- story: go_to_location
+  steps:
+  - intent: go_to
+  - action: 
