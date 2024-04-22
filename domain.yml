@@ -12,6 +12,7 @@ intents:
   - go_to
   - identify_operator
   - say_operator_name
+  - describe_ambient
 
 entities:
   - object
@@ -40,6 +41,10 @@ responses:
 
   utter_ask_name:
   - text: "What is your name?"
+
+actions:
+  - action_describe_ambient
+  - action_go_to_location
 
 session_config:
   session_expiration_time: 60

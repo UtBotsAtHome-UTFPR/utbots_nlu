@@ -173,3 +173,11 @@ nlu:
     - [Susan](person)
     - [Jessica](person)
     - [Sarah](person)
+
+- intent: describe_ambient
+  examples: |
+    - describe the ambient for me
+    - describe the ambient
+    - describe the surroundings
+    - describe our surroundings
+    - what do you see?

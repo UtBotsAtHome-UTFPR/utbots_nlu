@@ -12,4 +12,9 @@ rules:
   - intent: identify_operator
   - action: utter_ask_name
 
+- rule: Describe ambient with YOLO
+  steps:
+  - intent: describe_ambient
+  - action: action_describe_ambient
+
 
