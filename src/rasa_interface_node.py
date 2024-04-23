@@ -3,12 +3,14 @@
 import rospy
 from std_msgs.msg import String
 from vision_msgs.msg import BoundingBoxes
+from rospkg import RosPack
 import requests
 import subprocess
 
 class RasaInterface:
     def __init__(self):
-        subprocess.Popen(["rasa", "run"])
+        package_path = RosPack().get_path("utbots_nlu")
+        subprocess.Popen(["./setup.sh"], cwd=package_path)
         self.RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 
         # Node initialization
