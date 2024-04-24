@@ -181,3 +181,83 @@ nlu:
     - describe the surroundings
     - describe our surroundings
     - what do you see?
+
+# QA Questions
+- intent: general_qa1
+  examples: |
+    - What is the hero’s name in The Legend of Zelda?
+- intent: general_qa2
+  examples: |
+    - What are the names of the ghosts who chase Pac Man and Ms. Pac Man?
+- intent: general_qa3
+  examples: |
+    - What’s the name of the Mythbusters’ crash test dummy?
+- intent: general_qa4
+  examples: |
+    - What is an Oxford comma?
+- intent: general_qa5
+  examples: |
+    - Who was the captain of the Enterprise in the pilot episode of Star Trek?
+- intent: general_qa6
+  examples: |
+    - What is the symbol for the modulus operator in C?
+- intent: general_qa7
+  examples: |
+    - What function is automatically called at the beginning of a C++ program?
+- intent: general_qa8
+  examples: |
+    - Which computer programming languages was introduced by IBM in 1957?
+- intent: general_qa9
+  examples: |
+    - Who is considered as the first programmer?
+- intent: general_qa10
+  examples: |
+    - Has a robot ever killed a person?
+- intent: general_qa11
+  examples: |
+    - Who was HitchBOT?
+- intent: general_qa12
+  examples: |
+    - Are self-driving cars safe?
+- intent: general_qa13
+  examples: |
+    - Who invented the compiler?
+- intent: general_qa14
+  examples: |
+    - Who created the Python Programming Language?
+- intent: general_qa15
+  examples: |
+    - Is Mark Zuckerberg a robot?
+- intent: general_qa16
+  examples: |
+    - Why did you run away?
+- intent: general_qa17
+  examples: |
+    - What kind of salad do robots like?
+- intent: general_qa18
+  examples: |
+    - What did you ate for lunch?
+    - What did you eat for lunch
+- intent: general_qa19
+  examples: |
+    - Why did robots get angry so often?
+- intent: general_qa20
+  examples: |
+    - Why shouldn’t R2D2 be allowed in movies?
+- intent: general_qa21
+  examples: |
+    - What’s your favorite style of music?
+# Hard ones
+- intent: general_qa22
+  examples: |
+    - What does the acronym SMTP represent?
+- intent: general_qa23
+  examples: |
+    - What does the acronym MPEG represent?
+- intent: general_qa24
+  examples: |
+    - What does the acronym GIMP represent?
+- intent: general_qa25
+  examples: |
+    - What does the acronym GNU represent?
+

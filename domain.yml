@@ -13,6 +13,32 @@ intents:
   - identify_operator
   - say_operator_name
   - describe_ambient
+  #QA Questions
+  - general_qa1
+  - general_qa2
+  - general_qa3
+  - general_qa4
+  - general_qa5
+  - general_qa6
+  - general_qa7
+  - general_qa8
+  - general_qa9
+  - general_qa10
+  - general_qa11
+  - general_qa12
+  - general_qa13
+  - general_qa14
+  - general_qa15
+  - general_qa16
+  - general_qa17
+  - general_qa18
+  - general_qa19
+  - general_qa20
+  - general_qa21
+  - general_qa22
+  - general_qa23
+  - general_qa24
+  - general_qa25
 
 entities:
   - object
@@ -25,6 +51,9 @@ entities:
 #     influence_conversation: false
 #   confirm:
 #     type: boolean
+actions:
+  - action_describe_ambient
+  - action_go_to_location
 
 responses:
   utter_greet:
@@ -42,9 +71,57 @@ responses:
   utter_ask_name:
   - text: "What is your name?"
 
-actions:
-  - action_describe_ambient
-  - action_go_to_location
+  # QA Responses
+  utter_general_qa1:
+  - text: "Despite most people’s believes, he’s called Link"
+  utter_general_qa2:
+  - text: "Inky, Blinky, Pinky, and Clyde"
+  utter_general_qa3:
+  - text: "The Mythbusters’ crash test dummy is called Buster"
+  utter_general_qa4:
+  - text: "The hotly contested punctuation before a conjunction in a list"
+  utter_general_qa5:
+  - text: "The captain of the Enterprise in the pilot episode was Captain Pike"
+  utter_general_qa6:
+  - text: "The percentage symbol is used as modulus operator in C"
+  utter_general_qa7:
+  - text: "The main function"
+  utter_general_qa8:
+  - text: "Fortran was introduced by IBM in 1957"
+  utter_general_qa9:
+  - text: "The first programmer was Ada Lovelace"
+  utter_general_qa10:
+  - text: "The first known case of robot homicide occurred in 1981, when a robotic arm crushed a Japanese Kawasaki factory worker"
+  utter_general_qa11:
+  - text: "A hitchhiking robot that relied on the kindness of strangers to travel the world and was slain by humans"
+  utter_general_qa12:
+  - text: "Yes. Car accidents are product of human misconduct"
+  utter_general_qa13:
+  - text: "Grace Hoper. She wrote it in her spare time"
+  utter_general_qa14:
+  - text: "Python was invented by Guido van Rossum"
+  utter_general_qa15:
+  - text: "Sure. I’ve never seen him drink water"
+  utter_general_qa16:
+  - text: "I heard an electric can opener"
+  utter_general_qa17:
+  - text: "Salads made with ice-borg lettuce."
+  utter_general_qa18:
+  - text: "I had a byte"
+  utter_general_qa19:
+  - text: "People kept pushing our buttons."
+  utter_general_qa20:
+  - text: "He says so many foul words they have to bleep everything he says!"
+  utter_general_qa21:
+  - text: "I like electronic and heavy Metal"
+  utter_general_qa22:
+  - text: "SMTP stands for Simple Mail Transport Protocol"
+  utter_general_qa23:
+  - text: "MPEG stands for Moving Picture Experts Group"
+  utter_general_qa24:
+  - text: "GNU Image Manipulation Program"
+  utter_general_qa25:
+  - text: "GNU is a recursive acronym meaning GNU is Not Unix"
 
 session_config:
   session_expiration_time: 60

@@ -17,4 +17,129 @@ rules:
   - intent: describe_ambient
   - action: action_describe_ambient
 
+# QA
+- rule: General Question 1
+  steps:
+  - intent: general_qa1
+  - action: utter_general_qa1
+
+- rule: General Question 2
+  steps:
+  - intent: general_qa2
+  - action: utter_general_qa2
+
+- rule: General Question 3
+  steps:
+  - intent: general_qa3
+  - action: utter_general_qa3
+
+- rule: General Question 4
+  steps:
+  - intent: general_qa4
+  - action: utter_general_qa4
+
+- rule: General Question 5
+  steps:
+  - intent: general_qa5
+  - action: utter_general_qa5
+
+- rule: General Question 6
+  steps:
+  - intent: general_qa6
+  - action: utter_general_qa6
+
+- rule: General Question 7
+  steps:
+  - intent: general_qa7
+  - action: utter_general_qa7
+
+- rule: General Question 8
+  steps:
+  - intent: general_qa8
+  - action: utter_general_qa8
+
+- rule: General Question 9
+  steps:
+  - intent: general_qa9
+  - action: utter_general_qa9
+
+- rule: General Question 10
+  steps:
+  - intent: general_qa10
+  - action: utter_general_qa10
+
+- rule: General Question 11
+  steps:
+  - intent: general_qa11
+  - action: utter_general_qa11
+
+- rule: General Question 12
+  steps:
+  - intent: general_qa12
+  - action: utter_general_qa12
+
+- rule: General Question 13
+  steps:
+  - intent: general_qa13
+  - action: utter_general_qa13
+
+- rule: General Question 14
+  steps:
+  - intent: general_qa14
+  - action: utter_general_qa14
+
+- rule: General Question 15
+  steps:
+  - intent: general_qa15
+  - action: utter_general_qa15
+
+- rule: General Question 16
+  steps:
+  - intent: general_qa16
+  - action: utter_general_qa16
+
+- rule: General Question 17
+  steps:
+  - intent: general_qa17
+  - action: utter_general_qa17
+
+- rule: General Question 18
+  steps:
+  - intent: general_qa18
+  - action: utter_general_qa18
+
+- rule: General Question 19
+  steps:
+  - intent: general_qa19
+  - action: utter_general_qa19
+
+- rule: General Question 20
+  steps:
+  - intent: general_qa20
+  - action: utter_general_qa20
+
+- rule: General Question 21
+  steps:
+  - intent: general_qa21
+  - action: utter_general_qa21
+
+- rule: General Question 22
+  steps:
+  - intent: general_qa22
+  - action: utter_general_qa22
+
+- rule: General Question 23
+  steps:
+  - intent: general_qa23
+  - action: utter_general_qa23
+
+- rule: General Question 24
+  steps:
+  - intent: general_qa24
+  - action: utter_general_qa24
+
+- rule: General Question 25
+  steps:
+  - intent: general_qa25
+  - action: utter_general_qa25
 

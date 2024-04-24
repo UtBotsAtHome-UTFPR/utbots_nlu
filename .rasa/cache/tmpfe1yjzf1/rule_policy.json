@@ -1,0 +1,22 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_ambient\"}}]": "action_describe_ambient",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_ambient\"}}, {\"prev_action\": {\"action_name\": \"action_describe_ambient\"}, \"user\": {\"intent\": \"describe_ambient\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"introduce_robot\"}}]": "utter_introduce_robot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"introduce_robot\"}}, {\"prev_action\": {\"action_name\": \"utter_introduce_robot\"}, \"user\": {\"intent\": \"introduce_robot\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"identify_operator\"}}]": "utter_ask_name",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"identify_operator\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_name\"}, \"user\": {\"intent\": \"identify_operator\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_ambient\"}}, {\"prev_action\": {\"action_name\": \"action_describe_ambient\"}, \"user\": {\"intent\": \"describe_ambient\"}}]",
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_ambient\"}}]",
+      "predicting default action with intent restart"
+    ]
+  }
+}
