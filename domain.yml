@@ -51,9 +51,9 @@ entities:
 #     influence_conversation: false
 #   confirm:
 #     type: boolean
-actions:
-  - action_describe_ambient
-  - action_go_to_location
+# actions:
+#   - action_describe_ambient
+#   - action_go_to_location
 
 responses:
   utter_greet:
@@ -70,6 +70,9 @@ responses:
 
   utter_ask_name:
   - text: "What is your name?"
+
+  utter_describe_ambient:
+  - text: "[ROSACT]DESCRIBE_AMBIENT"
 
   # QA Responses
   utter_general_qa1:
