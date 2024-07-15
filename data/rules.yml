@@ -12,15 +12,15 @@ rules:
   - intent: identify_operator
   - action: utter_ask_name
 
-# - rule: Describe ambient with YOLO
-#   steps:
-#   - intent: describe_ambient
-#   - action: action_describe_ambient
-
 - rule: Describe ambient with YOLO
   steps:
   - intent: describe_ambient
-  - action: utter_describe_ambient
+  - action: action_describe_ambient
+
+- rule: Go to location
+  steps:
+  - intent: go_to
+  - action: action_go_to_location
 
 # QA
 - rule: General Question 1

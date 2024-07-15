@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: utbots_nlu
+Description: Description of utbots_nlu
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

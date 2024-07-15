@@ -45,15 +45,17 @@ entities:
   - person
   - room
 
-# slots:
-#   room:
-#     type: text
-#     influence_conversation: false
-#   confirm:
-#     type: boolean
-# actions:
-#   - action_describe_ambient
-#   - action_go_to_location
+slots:
+  room:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: room
+      
+actions:
+  - action_describe_ambient
+  - action_go_to_location
 
 responses:
   utter_greet:
