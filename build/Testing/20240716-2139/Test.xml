@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20240716-2139-Experimental"
+	Name="laser"
+	Generator="ctest-3.16.3"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="laser"
+	OSRelease="5.15.0-113-generic"
+	OSVersion="#123~20.04.1-Ubuntu SMP Wed Jun 12 17:33:13 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="94"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="7887"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="913.77"
+	>
+	<Testing>
+		<StartDateTime>Jul 16 20:00 -03</StartDateTime>
+		<StartTestTime>1721170832</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jul 16 20:00 -03</EndDateTime>
+		<EndTestTime>1721170832</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
