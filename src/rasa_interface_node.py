@@ -12,6 +12,7 @@ from utbots_actions.msg import InterpretNLUAction, InterpretNLUResult
 import requests
 import subprocess
 import json
+from std_msgs.msgs import String
 
 class RasaInterface:
     def __init__(self):
@@ -35,12 +36,27 @@ class RasaInterface:
         self.response = ""
         self.enable_nlu = False
 
-        self.rate = rospy.Rate(30) # 30hz
+        self.msg = String()
+        self.new_msg = False
+
+        self.rate = rospy.Rate(1) # 30hz
 
         self.main()
 
     def callback_msg(self, msg):
-        payload = {'message': msg.data}
+        self.new_msg = True
+        self.msg = msg
+
+    def execute(self, goal):
+
+        while self.new_msg == False:
+            rospy.rate.sleep()
+            if self.server.is_preempt_requested():
+                rospy.loginfo("Action preempted")
+                self.server.set_preempted()
+                return
+        
+        payload = {'message': self.msg.data}
         headers = {'content-type': 'application/json'}
         try:
             self.response = requests.post(self.RASA_API_URL, json = payload, headers=headers)
@@ -75,11 +91,8 @@ class RasaInterface:
                 rospy.logwarn(f"[NLU] An unexpected error occurred: {e}")
                 self.server.set_aborted()
 
-        self.enable_nlu = False
+        self.new_msg = False
         self.server.set_succeeded(action_res)
-
-    def execute(self, goal):
-        self.enable_nlu = True
 
     def main(self):
         while not rospy.is_shutdown():
