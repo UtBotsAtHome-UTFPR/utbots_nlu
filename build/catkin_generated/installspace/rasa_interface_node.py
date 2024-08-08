@@ -12,6 +12,7 @@ from utbots_actions.msg import InterpretNLUAction, InterpretNLUResult
 import requests
 import subprocess
 import json
+from std_msgs.msg import String
 
 class RasaInterface:
     def __init__(self):
@@ -29,35 +30,52 @@ class RasaInterface:
         # Publishers and Subscribers
         self.sub_usermessage = rospy.Subscriber('/utbots/voice/stt/whispered', String, self.callback_msg)
         self.pub_response = rospy.Publisher('/utbots/voice/tts/robot_speech', String, queue_size=1)
-        self.pub_action = rospy.Publisher('/utbots/voice/nlu/action', String, queue_size=1)
-        self.pub_slot = rospy.Publisher('/utbots/voice/nlu/slot', String, queue_size=1)
 
         self.response = ""
         self.enable_nlu = False
 
-        self.rate = rospy.Rate(30) # 30hz
+        self.msg_whisper = String()
+        self.new_msg = False
+
+        self.rate = rospy.Rate(1) # 30hz
 
         self.main()
 
     def callback_msg(self, msg):
-        payload = {'message': msg.data}
+        self.new_msg = True
+        self.msg_whisper = msg
+
+    def execute(self, goal):
+        rospy.loginfo(f"[NLU] Goal recieved, waiting for request")
+        while self.new_msg == False:
+            self.rate.sleep()
+            if self.server.is_preempt_requested():
+                rospy.loginfo("[NLU] Action preempted")
+                self.server.set_preempted()
+                return
+        
+        payload = {'message': self.msg_whisper.data}
         headers = {'content-type': 'application/json'}
         try:
             self.response = requests.post(self.RASA_API_URL, json = payload, headers=headers)
             self.response = self.response.json()[0]['text']
+            rospy.loginfo(f"[NLU] Request: {self.msg_whisper.data}")
             rospy.loginfo(f"[NLU] Response: {self.response}")
+            action_res = InterpretNLUResult()
+            action_res.NLUInput = String(self.msg_whisper.data)
+            action_res.NLUOutput = String(self.response)
+        
             try:
                 extracted_data = json.loads(self.response)
-                action_res = InterpretNLUResult()
                 if 'ROSACT' in extracted_data or 'SLOT' in extracted_data:
                     if extracted_data["ROSACT"] != "":
-                        action_res.Task = extracted_data["ROSACT"]
+                        action_res.Task = String(extracted_data["ROSACT"])
                     if extracted_data["SLOT"] != "":
-                        action_res.Data = extracted_data["SLOT"]
-                else:
-                    action_res.Task = ""
-                    action_res.Data = ""
+                        action_res.Data =  String(extracted_data["SLOT"])
             except:
+                rospy.loginfo("[NLU] No command interpreted, TTS response published")
+                action_res.Task =  String()
+                action_res.Data =  String()
                 self.msg_response = String()
                 self.msg_response.data = self.response
                 self.pub_response.publish(self.msg_response)
@@ -70,16 +88,16 @@ class RasaInterface:
         except Exception as e:
             if str(type(e)) == "<class 'requests.exceptions.ConnectionError'>":
                 rospy.logwarn("[NLU] Rasa not up yet")
+                rospy.loginfo("[NLU] Action aborted")
                 self.server.set_aborted()
             else:
                 rospy.logwarn(f"[NLU] An unexpected error occurred: {e}")
+                rospy.loginfo("[NLU] Action aborted")
                 self.server.set_aborted()
 
-        self.enable_nlu = False
+        self.new_msg = False
+        rospy.loginfo("[NLU] Action succeded. Sending result")
         self.server.set_succeeded(action_res)
-
-    def execute(self, goal):
-        self.enable_nlu = True
 
     def main(self):
         while not rospy.is_shutdown():
