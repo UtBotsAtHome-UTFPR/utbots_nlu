@@ -1,0 +1,5 @@
+rasa
+actionlib
+requests
+subprocess
+json
