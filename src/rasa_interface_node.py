@@ -46,7 +46,7 @@ class RasaInterface:
         self.msg_whisper = msg
 
     def execute(self, goal):
-        rospy.loginfo(f"[NLU] Goal recieved, waiting for request")
+        rospy.loginfo(f"[NLU] Goal received, waiting for request")
         while self.new_msg == False:
             self.rate.sleep()
             if self.server.is_preempt_requested():
@@ -81,6 +81,9 @@ class RasaInterface:
                 self.pub_response.publish(self.msg_response)
         except IndexError:
             rospy.logwarn("[NLU] No response for this request")
+            action_res = InterpretNLUResult()
+            action_res.NLUInput = String(self.msg_whisper.data)
+            action_res.NLUOutput = String("No response for this request")
             self.server.set_aborted()
         except KeyError as e:
             rospy.logwarn(f"[NLU] Error: {e}")
