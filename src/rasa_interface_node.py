@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+!#/usr/bin/utbots_nlu_env/bin/python
 
 import rospy
 import roslib
