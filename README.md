@@ -27,15 +27,14 @@ cd ..
 catkin_make
 ```
 
-The code runs on Python 3. Install RASA and other Python requirements:
+The code runs on Python 3 and you must use a virtualenv (Install with `pip install virtualenv`) with the path `/usr/bin/utbots_nlu_env/bin/python` as the node expects its existence to run.. Install RASA and other Python requirements:
 
 ```bash
+cd /usr/bin
+sudo python3 -m virtualenv utbots_nlu_env --python=$(which python3)
 roscd utbots_nlu
-pip install -r requirements.txt
+/usr/bin/utbots_nlu_env/bin/python -m pip install -r requirements.txt
 ```
-
-**OBS:** Recommended Python virtual environment
-
 
 ## Running
 To run interface RASA, you first must enable the node for listening to STT text, that must be done sending an empty goal to the action server. Then, when an STT callback occurs, it will process the text and output the result, disabling the NLU wait for STT text. If the intention detected is a verbal response, it will publish in the TTS topic. If the intention detected is an operator command, it will return in the results a Task information and a Data information for task-associated data. In both cases, the NLU input and output are sent as results, for log purposes.
