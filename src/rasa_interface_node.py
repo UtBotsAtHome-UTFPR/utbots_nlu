@@ -84,7 +84,6 @@ class RasaInterface:
             action_res = InterpretNLUResult()
             action_res.NLUInput = String(self.msg_whisper.data)
             action_res.NLUOutput = String("No response for this request")
-            self.server.set_aborted()
         except KeyError as e:
             rospy.logwarn(f"[NLU] Error: {e}")
             self.server.set_aborted()
