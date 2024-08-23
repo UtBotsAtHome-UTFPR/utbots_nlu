@@ -27,7 +27,7 @@ cd ..
 catkin_make
 ```
 
-The code runs on Python 3 and you must use a virtualenv (Install with `pip install virtualenv`) with the path `/usr/bin/utbots_nlu_env/bin/python` as the node expects its existence to run.. Install RASA and other Python requirements:
+The code runs on Python 3 and you must use a virtualenv (Install with `pip install virtualenv`) with the path `/usr/bin/venv_utbots_nlu/bin/python` as the node expects its existence to run.. Install RASA and other Python requirements:
 
 ```bash
 cd /usr/bin
