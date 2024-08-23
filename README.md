@@ -31,9 +31,9 @@ The code runs on Python 3 and you must use a virtualenv (Install with `pip insta
 
 ```bash
 cd /usr/bin
-sudo python3 -m virtualenv utbots_nlu_env --python=$(which python3)
+sudo python3 -m virtualenv venv_utbots_nlu --python=$(which python3)
 roscd utbots_nlu
-/usr/bin/utbots_nlu_env/bin/python -m pip install -r requirements.txt
+/usr/bin/venv_utbots_nlu/bin/python -m pip install -r requirements.txt
 ```
 
 ## Running
