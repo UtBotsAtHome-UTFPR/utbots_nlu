@@ -37,6 +37,9 @@ roscd utbots_nlu
 ```
 
 ## Running
+
+**OBS**: DO NOT run `rasa init` in the terminal, as it will erase the trained weights and .yml files in which are written the training examples and configurations. 
+
 To run interface RASA, you first must enable the node for listening to STT text, that must be done sending an empty goal to the action server. Then, when an STT callback occurs, it will process the text and output the result, disabling the NLU wait for STT text. If the intention detected is a verbal response, it will publish in the TTS topic. If the intention detected is an operator command, it will return in the results a Task information and a Data information for task-associated data. In both cases, the NLU input and output are sent as results, for log purposes.
 
 First, initialize ROS (if not already):
