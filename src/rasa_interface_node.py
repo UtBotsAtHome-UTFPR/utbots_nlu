@@ -21,8 +21,15 @@ class RasaInterface:
         subprocess.Popen(["bash", "-c", "rasa run"], cwd=package_path)
         self.RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 
+        is_rasa_running = False
+
+        #Only start server when rasa is up and running
+        while(is_rasa_running == False):
+            is_rasa_running = self.is_rasa_running(self.RASA_API_URL)
+
         # Node initialization
         rospy.init_node('rasa_inteface_node', anonymous=True)
+        
         # Action server initialization
         self.server = actionlib.SimpleActionServer('interpret_nlu', InterpretNLUAction, self.execute, False)
         self.server.start()
@@ -40,6 +47,19 @@ class RasaInterface:
         self.rate = rospy.Rate(1) # 30hz
 
         self.main()
+
+    def is_rasa_running(self,rasa_api_url):
+        try:
+            response = requests.get(rasa_api_url)
+            if response.status_code == 405:
+                #Rasa is up and running!
+                return True
+            else:
+                #Rasa is up but not running
+                return False
+        except requests.ConnectionError:
+            #Failed to connect to Rasa.
+            return False
 
     def callback_msg(self, msg):
         self.new_msg = True

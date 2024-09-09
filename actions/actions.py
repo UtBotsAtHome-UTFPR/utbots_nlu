@@ -52,3 +52,4 @@ class GoToLocation(Action):
             dispatcher.utter_message(text=f"I could not identify the destiny location")
 
         return []
+    
