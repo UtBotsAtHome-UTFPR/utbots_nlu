@@ -4,8 +4,6 @@ import rospy
 import roslib
 roslib.load_manifest('utbots_nlu')
 from std_msgs.msg import String
-from vision_msgs.msg import BoundingBoxes
-from std_srvs.srv import Empty
 from rospkg import RosPack
 import actionlib
 from utbots_actions.msg import InterpretNLUAction, InterpretNLUResult
