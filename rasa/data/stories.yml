@@ -1,0 +1,26 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_sad
+
+- story: introductions
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: introduce_robot
+  - action: utter_introduce_robot
+  - intent: identify_operator
+  - action: utter_ask_name
