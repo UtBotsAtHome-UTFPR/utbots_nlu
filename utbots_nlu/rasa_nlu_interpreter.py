@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
 from std_msgs.msg import String
-from utbots_action.action import InterpretNLU  # Replace 'your_package_name'
+from utbots_action.action import InterpretNLU
 from rasa.core.agent import Agent
 import json
 import asyncio
@@ -14,6 +14,7 @@ class RasaNLUInterpreter(Node):
         super().__init__('rasa_nlu_interpreter')
         self.declare_parameter(
             'model_path',
+            # TODO: ajustar funcao de pegar o diretorio do src
             os.path.join(get_package_share_directory(self.get_name()), 'rasa', 'models', '20250528-170450-black-bollard.tar.gz')
         )
         self._action_server = ActionServer(

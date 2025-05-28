@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'rasa_nlu_interpreter = utbots_nlu.rasa_nlu_interpreter:main'
         ],
     },
 )
