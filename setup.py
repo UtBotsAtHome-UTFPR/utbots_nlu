@@ -17,7 +17,10 @@ setup(
     maintainer_email='utbots.home@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
+    # tests_require=['pytest'],
+    extras_require={
+    'test': ['pytest', 'other-test-deps']
+    },
     entry_points={
         'console_scripts': [
             'rasa_nlu_interpreter = utbots_nlu.rasa_nlu_interpreter:main'

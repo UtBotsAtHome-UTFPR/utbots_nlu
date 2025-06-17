@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
 from std_msgs.msg import String
-from utbots_action.action import InterpretNLU
+from utbots_actions.action import InterpretNLU
 from rasa.core.agent import Agent
 import json
 import asyncio
@@ -12,11 +12,18 @@ from ament_index_python.packages import get_package_share_directory
 class RasaNLUInterpreter(Node):
     def __init__(self):
         super().__init__('rasa_nlu_interpreter')
+        default_path= get_package_share_directory("utbots_nlu").rsplit("install")[0] \
+        + "src/utbots_nlu/rasa/models/20250528-170450-black-bollard.tar.gz"
+        default_path= default_path if os.path.exists(default_path) \
+            else default_path.rsplit("utbots_nlu")[0]         \
+                + "utbots_voice/utbots_nlu/rasa/models/20250528-170450-black-bollard.tar.gz"
+
         self.declare_parameter(
             'model_path',
-            # TODO: ajustar funcao de pegar o diretorio do src
-            os.path.join(get_package_share_directory(self.get_name()), 'rasa', 'models', '20250528-170450-black-bollard.tar.gz')
+            default_path,
+            #TODO: descriptor
         )
+
         self._action_server = ActionServer(
             self,
             InterpretNLU,
@@ -41,7 +48,7 @@ class RasaNLUInterpreter(Node):
         self.get_logger().info(f'Executing goal for input: "{goal.request.nlu_input.data}"')
       
         result = InterpretNLU.Result()
-        result.nlu_input = goal.request.nlu_input
+        result.nlu_input.data = goal.request.nlu_input.data
 
         if self.nlu_interpreter:
             try:
