@@ -10,10 +10,10 @@
 ### Building (if downloaded outside utbots_voice)
 
 ```bash
-cd ~/catkin_ws/src
+cd ~/<ros2_ws>/src
 git clone https://github.com/UtBotsAtHome-UTFPR/utbots_nlu.git
 cd ..
-catkin_make
+colcon build
 ```
 
 ### Dependencies
@@ -21,10 +21,10 @@ catkin_make
 This package must be used alongside the [utbots_dependencies](https://github.com/UtBotsAtHome-UTFPR/utbots_dependencies) as it uses some of the message and action definitions. You can do this with:
 
 ```bash
-cd ~/catkin_ws/src/
+cd ~/<ros2_ws>/src
 git clone https://github.com/UtBotsAtHome-UTFPR/utbots_dependencies.git
 cd ..
-catkin_make
+colcon build
 ```
 
 The code runs on Python 3 and you must use a virtualenv (Install with `pip install virtualenv`) with the path `/usr/bin/venv_utbots_nlu/bin/python` as the node expects its existence to run.. Install RASA and other Python requirements:
@@ -51,7 +51,7 @@ roscore
 Then, run the node:
 
 ```bash
-rosrun utbots_nlu rasa_interface_node.py
+ros2 utbots_nlu rasa_nlu_interpreter.py
 ```
 
 ### Getting NLU responses
@@ -81,7 +81,7 @@ rostopic pub /utbots/voice/stt/whispered std_msgs/String "<nlu input>"
 
 To see the action result in the terminal:
 ```bash
-rostopic echo /interpret_nlu/result
+ros2 topic echo /interpret_nlu/result
 ```
 
 ## Training
