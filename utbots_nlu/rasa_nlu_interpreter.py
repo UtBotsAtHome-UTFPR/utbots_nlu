@@ -8,6 +8,7 @@ import json
 import asyncio
 import os
 from ament_index_python.packages import get_package_share_directory
+from rcl_interfaces.msg import ParameterDescriptor
 
 class RasaNLUInterpreter(Node):
     def __init__(self):
@@ -21,22 +22,68 @@ class RasaNLUInterpreter(Node):
         self.declare_parameter(
             'model_path',
             default_path,
-            #TODO: descriptor
+            ParameterDescriptor(description='Rasa custom model path. Default is a sample model path.'),
+        )
+        self.declare_parameter(
+            'verbose',
+            False,
+            descriptor=ParameterDescriptor(
+                description='Enable verbose logging for the RASA NLU interpreter. Default is False.') 
         )
 
+
+        self.nlu_interpreter = None
+        self._model_path = self.get_parameter('model_path').get_parameter_value().string_value
+        if not self._model_path:
+            self.get_logger().warn("No RASA NLU model path provided. Using default path.")
+            self._model_path = default_path
+        self.get_logger().info(f"RASA NLU model path: {self._model_path}")
+        # Load the RASA NLU model
+        if not os.path.exists(self._model_path):
+            self.get_logger().warning(f"Model path '{self._model_path}' does not exist. Using default model path.")
+            self._model_path = default_path
+        self.verbose= self.get_parameter('verbose').get_parameter_value().bool_value
+        
+        if not self.verbose:
+            import logging
+            # Suppress RASA and TensorFlow logs if verbose is False
+            logging.basicConfig(level=logging.ERROR)
+            logging.getLogger('rasa.nlu').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.classifiers').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.extractors').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.interpreter').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.training_data').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.utils').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.config').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.model').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.components').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.registry').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.training').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.training_data.loading').setLevel(logging.ERROR)
+            logging.getLogger('rasa.nlu.training_data.formats').setLevel(logging.ERROR) 
+            logging.getLogger('rasa').setLevel(logging.ERROR)
+            logging.getLogger('rasa.core').setLevel(logging.ERROR)
+            logging.getLogger('rasa.model').setLevel(logging.ERROR)
+            logging.getLogger('tensorflow').setLevel(logging.ERROR)
+            logging.getLogger('apscheduler').setLevel(logging.ERROR)
+
+        # Initialize the RASA NLU interpreter
+        self.get_logger().info("Loading Rasa model...")
+        self._load_rasa_model()
+        self.get_logger().info("Sucess! Rasa model loaded.")
+
+        # Create an action server for interpreting NLU input
         self._action_server = ActionServer(
             self,
             InterpretNLU,
-            'interpret_nlu',
+            '/utbots/interpret_nlu',
             self.execute_callback)
-        self.nlu_interpreter = None
-        self._model_path = self.get_parameter('model_path').get_parameter_value().string_value
-        self._load_rasa_model()
+        self.get_logger().info("RASA NLU Interpreter Node has been initialized.")
 
     def _load_rasa_model(self):
         if self._model_path:
             try:
-                self.nlu_interpreter = Agent.load(self._model_path)
+                self.nlu_interpreter = Agent.load(self._model_path,)
                 self.get_logger().info(f"RASA NLU model loaded from: {self._model_path}")
             except Exception as e:
                 self.nlu_interpreter = None
@@ -62,9 +109,13 @@ class RasaNLUInterpreter(Node):
                 result.nlu_output.data = json.dumps(rasa_output) # Keep the full output if needed for debugging
                 result.task.data = intent
                 result.data.data = json.dumps(entities_list)
+                if(self.verbose):
+                    self.get_logger().info(f"RASA NLU Output: {result.nlu_output.data}")
+                    self.get_logger().info(f"Intent: {intent}")
+                    self.get_logger().info(f"Entities: {entities_list}")
 
                 # Indicate successful completion of the goal
-                goal.succeed(result)
+                goal.succeed()
             except Exception as e:
                 self.get_logger().error(f"Error during NLU interpretation: {e}")
                 goal.abort()
@@ -73,7 +124,7 @@ class RasaNLUInterpreter(Node):
             result.nlu_output.data = "RASA model not loaded."
             result.task.data = "error"
             result.data.data = ""
-            goal.abort(result=result)
+            goal.abort()
 
         return result
 
