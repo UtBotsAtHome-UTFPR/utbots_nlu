@@ -182,6 +182,64 @@ nlu:
     - describe our surroundings
     - what do you see?
 
+- intent: like_drink
+  examples: |
+    - I like [cola](object)
+    - I enjoy [cola](object)
+    - I like [ice tea](object)
+    - I enjoy [ice tea](object)
+    - I like [water](object)
+    - I enjoy [water](object)
+    - I like [milk](object)
+    - I enjoy [milk](object)
+    - I like [big coke](object)
+    - I enjoy [big coke](object)
+    - I like [fanta](object)
+    - I enjoy [fanta](object)
+    - I like [dubbelfris](object)
+    - I enjoy [dubbelfris](object)
+
+- intent: pick_object
+  examples: |
+    - Pick the [soap](object)
+    - Pick the [dishwasher tab](object)
+    - Pick the [washcloth](object)
+    - Pick the [sponges](object)
+    - Pick the [cornflakes](object)
+    - Pick the [pea soup](object)
+    - Pick the [curry](object)
+    - Pick the [pancake mix](object)
+    - Pick the [hagelslag](object)
+    - Pick the [sausages](object)
+    - Pick the [mayonaise](object)
+    - Pick the [candle](object)
+    - Pick the [pear](object)
+    - Pick the [plum](object)
+    - Pick the [peach](object)
+    - Pick the [lemon](object)
+    - Pick the [orange](object)
+    - Pick the [strawberry](object)
+    - Pick the [banana](object)
+    - Pick the [apple](object)
+    - Pick the [stroopwafel](object)
+    - Pick the [candy](object)
+    - Pick the [liquorice](object)
+    - Pick the [crisps](object)
+    - Pick the [pringles](object)
+    - Pick the [tictac](object)
+    - Pick the [spoon](object)
+    - Pick the [plate](object)
+    - Pick the [cup](object)
+    - Pick the [fork](object)
+    - Pick the [bowl](object)
+    - Pick the [knife](object)
+    - Grab the [knife](object)
+    - Grab the [soap](object)
+    - Grab the [pear](object)
+    - Can you pick up the [candle](object)?
+    - I want the [cup](object)
+    - Get the [cola](object)
+
 # QA Questions
 - intent: general_qa1
   examples: |

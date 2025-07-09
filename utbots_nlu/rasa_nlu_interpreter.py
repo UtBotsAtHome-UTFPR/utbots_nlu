@@ -14,10 +14,10 @@ class RasaNLUInterpreter(Node):
     def __init__(self):
         super().__init__('rasa_nlu_interpreter')
         default_path= get_package_share_directory("utbots_nlu").rsplit("install")[0] \
-        + "src/utbots_nlu/rasa/models/20250528-170450-black-bollard.tar.gz"
+        + "src/utbots_nlu/rasa/models/20250709-163318-median-reflection.tar.gz"
         default_path= default_path if os.path.exists(default_path) \
             else default_path.rsplit("utbots_nlu")[0]         \
-                + "utbots_voice/utbots_nlu/rasa/models/20250528-170450-black-bollard.tar.gz"
+                + "utbots_voice/utbots_nlu/rasa/models/20250709-163318-median-reflection.tar.gz"
 
         self.declare_parameter(
             'model_path',

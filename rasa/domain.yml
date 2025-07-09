@@ -13,6 +13,8 @@ intents:
   - identify_operator
   - say_operator_name
   - describe_ambient
+  - like_drink
+  - pick_object
   #QA Questions
   - general_qa1
   - general_qa2
