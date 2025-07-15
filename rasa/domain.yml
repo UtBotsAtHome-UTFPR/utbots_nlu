@@ -15,6 +15,12 @@ intents:
   - describe_ambient
   - like_drink
   - pick_object
+  - pick_drink
+  - pick_fruit
+  - pick_snack
+  - pick_food
+  - pick_dish
+  - pick_cleaning_supply
   #QA Questions
   - general_qa1
   - general_qa2
@@ -41,11 +47,23 @@ intents:
   - general_qa23
   - general_qa24
   - general_qa25
+  - ask_about_bahia
+  - bahia_facts
+  - bahia_geography
+  - bahia_climate
+  - bahia_economy
+  - ask_interested_in
 
 entities:
   - object
   - person
   - room
+  - drink
+  - fruit
+  - snack
+  - food
+  - dish
+  - cleaning_supply
 
 slots:
   room:
@@ -129,6 +147,79 @@ responses:
   - text: "GNU Image Manipulation Program"
   utter_general_qa25:
   - text: "GNU is a recursive acronym meaning GNU is Not Unix"
+
+  utter_bahia_facts:
+  - text: "Did you know that Bahia is a Brazilian state located in the Northeast Region with 14.9 million inhabitants?"
+  - text: "Here's an interesting fact: Bahia is the fourth largest state in Brazil by population!"
+  - text: "Did you know that Salvador, Bahia's capital, was Brazil's first capital from 1549 to 1763?"
+  - text: "Bahia is fascinating! It's located in Northeast Brazil and has a rich historical background."
+
+  utter_bahia_geography:
+  - text: "Bahia's geography features plains and depressions, with most elevations above 300 meters. The highest point is Pico do Barbado at 2,033 meters!"
+  - text: "Did you know that Bahia has diverse terrain including the Serra do Espinhaço and Chapada Diamantina?"
+  - text: "The state's relief includes plateaus, coastal plains, and tablelands, creating a varied landscape."
+  - text: "Bahia's geography is characterized by the Depression Sertaneja and São Francisco in the west and plateaus in the east."
+
+  utter_bahia_climate:
+  - text: "Bahia has two main climate types: semi-arid in the central and western regions, and tropical along the coast."
+  - text: "Did you know that coastal areas of Bahia can receive over 2,000mm of rainfall annually?"
+  - text: "The semi-arid regions have irregular precipitation with dry winters, while coastal areas are more humid."
+  - text: "Bahia's climate varies from high temperatures with low humidity inland to tropical conditions on the coast."
+
+  utter_bahia_economy:
+  - text: "Bahia has the main economy in Northeast Brazil, focusing on the tertiary sector and manufacturing industry."
+  - text: "Did you know that Bahia's economy leads the Northeast region of Brazil?"
+  - text: "The state's economic strength comes from services and manufacturing sectors."
+  - text: "Bahia plays a crucial economic role in Northeast Brazil with its diverse industrial base."
+
+  utter_ask_about_bahia:
+  - text: "What would you like to know about Bahia? I can tell you about its geography, climate, economy, or interesting facts!"
+  - text: "Bahia is a fascinating Brazilian state! Are you interested in learning about its history, geography, or culture?"
+  - text: "I'd be happy to share information about Bahia! What aspect interests you most?"
+  - text: "Bahia has so much to offer! Would you like to know about its climate, geography, or historical significance?"
+
+  utter_ask_interested_in:
+  - text: "That's interesting! I'd love to learn more about your interests."
+  - text: "Great! It's always nice to know what people are passionate about."
+  - text: "Those are fascinating interests! Thanks for sharing that with me."
+  - text: "How wonderful! I enjoy learning about what makes people tick."
+  - text: "That's really cool! Your interests sound engaging."
+
+  utter_pick_drink:
+  - text: "I'll get that drink for you right away!"
+  - text: "Let me fetch that beverage for you."
+  - text: "Coming right up! I'll bring you that drink."
+  - text: "Sure thing! I'll get that drink now."
+
+  utter_pick_fruit:
+  - text: "I'll pick up that fruit for you!"
+  - text: "Let me get that fresh fruit for you."
+  - text: "Coming right up! I'll bring you that fruit."
+  - text: "Sure thing! I'll fetch that fruit now."
+
+  utter_pick_snack:
+  - text: "I'll get that snack for you right away!"
+  - text: "Let me fetch that tasty snack for you."
+  - text: "Coming right up! I'll bring you that snack."
+  - text: "Sure thing! I'll get that snack now."
+
+  utter_pick_food:
+  - text: "I'll get that food item for you!"
+  - text: "Let me fetch that food for you."
+  - text: "Coming right up! I'll bring you that food item."
+  - text: "Sure thing! I'll get that food now."
+
+  utter_pick_dish:
+  - text: "I'll get that dish for you right away!"
+  - text: "Let me fetch that tableware for you."
+  - text: "Coming right up! I'll bring you that dish."
+  - text: "Sure thing! I'll get that dish now."
+
+  utter_pick_cleaning_supply:
+  - text: "I'll get that cleaning supply for you!"
+  - text: "Let me fetch that cleaning item for you."
+  - text: "Coming right up! I'll bring you that cleaning supply."
+  - text: "Sure thing! I'll get that cleaning item now."
 
 session_config:
   session_expiration_time: 60

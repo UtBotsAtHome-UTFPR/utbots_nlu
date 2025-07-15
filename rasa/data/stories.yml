@@ -24,3 +24,67 @@ stories:
   - action: utter_introduce_robot
   - intent: identify_operator
   - action: utter_ask_name
+
+- story: bahia general inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_about_bahia
+  - action: utter_ask_about_bahia
+  - intent: bahia_facts
+  - action: utter_bahia_facts
+
+- story: bahia facts path
+  steps:
+  - intent: bahia_facts
+  - action: utter_bahia_facts
+  - intent: affirm
+  - action: utter_happy
+
+- story: bahia geography path
+  steps:
+  - intent: bahia_geography
+  - action: utter_bahia_geography
+  - intent: bahia_climate
+  - action: utter_bahia_climate
+
+- story: bahia climate path
+  steps:
+  - intent: bahia_climate
+  - action: utter_bahia_climate
+  - intent: affirm
+  - action: utter_happy
+
+- story: bahia economy path
+  steps:
+  - intent: bahia_economy
+  - action: utter_bahia_economy
+  - intent: bahia_facts
+  - action: utter_bahia_facts
+
+- story: comprehensive bahia conversation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_about_bahia
+  - action: utter_ask_about_bahia
+  - intent: bahia_geography
+  - action: utter_bahia_geography
+  - intent: bahia_climate
+  - action: utter_bahia_climate
+  - intent: bahia_economy
+  - action: utter_bahia_economy
+
+- story: interested in conversation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_interested_in
+  - action: utter_ask_interested_in
+  - intent: affirm
+  - action: utter_happy
+
+- story: sharing interests
+  steps:
+  - intent: ask_interested_in
+  - action: utter_ask_interested_in

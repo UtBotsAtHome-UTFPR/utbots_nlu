@@ -34,6 +34,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yes, it is
 
 - intent: deny
   examples: |
@@ -45,6 +46,7 @@ nlu:
     - no way
     - not really
     - i'm not
+    - no, it isn't
 
 - intent: mood_great
   examples: |
@@ -173,6 +175,51 @@ nlu:
     - [Susan](person)
     - [Jessica](person)
     - [Sarah](person)
+    - My name is [Maria](person)
+    - My name is [Ana](person)
+    - My name is [Francisca](person)
+    - My name is [Antônia](person)
+    - My name is [Adriana](person)
+    - My name is [Juliana](person)
+    - My name is [Marcia](person)
+    - My name is [Fernanda](person)
+    - My name is [Patrícia](person)
+    - My name is [Aline](person)
+    - My name is [Jose](person)
+    - My name is [Joao](person)
+    - My name is [Antonio](person)
+    - My name is [Francisco](person)
+    - My name is [Carlos](person)
+    - I am [Maria](person)
+    - I am [Ana](person)
+    - I am [Francisca](person)
+    - I am [Antônia](person)
+    - I am [Adriana](person)
+    - I am [Juliana](person)
+    - I am [Marcia](person)
+    - I am [Fernanda](person)
+    - I am [Patrícia](person)
+    - I am [Aline](person)
+    - I am [Jose](person)
+    - I am [Joao](person)
+    - I am [Antonio](person)
+    - I am [Francisco](person)
+    - I am [Carlos](person)
+    - [Maria](person)
+    - [Ana](person)
+    - [Francisca](person)
+    - [Antônia](person)
+    - [Adriana](person)
+    - [Juliana](person)
+    - [Marcia](person)
+    - [Fernanda](person)
+    - [Patrícia](person)
+    - [Aline](person)
+    - [Jose](person)
+    - [Joao](person)
+    - [Antonio](person)
+    - [Francisco](person)
+    - [Carlos](person)
 
 - intent: describe_ambient
   examples: |
@@ -190,14 +237,22 @@ nlu:
     - I enjoy [ice tea](object)
     - I like [water](object)
     - I enjoy [water](object)
-    - I like [milk](object)
-    - I enjoy [milk](object)
+    - I like [milk](drink)
+    - I enjoy [milk](drink)
     - I like [big coke](object)
     - I enjoy [big coke](object)
-    - I like [fanta](object)
-    - I enjoy [fanta](object)
+    - I like [fanta](drink)
+    - I enjoy [fanta](drink)
     - I like [dubbelfris](object)
     - I enjoy [dubbelfris](object)
+    - I like [kuat](drink)
+    - I enjoy [kuat](drink)
+    - I like [orange juice](drink)
+    - I enjoy [orange juice](drink)
+    - I like [coke](drink)
+    - I enjoy [coke](drink)
+    - I like [coffee](drink)
+    - I enjoy [coffee](drink)
 
 - intent: pick_object
   examples: |
@@ -239,6 +294,98 @@ nlu:
     - Can you pick up the [candle](object)?
     - I want the [cup](object)
     - Get the [cola](object)
+
+- intent: pick_drink
+  examples: |
+    - Pick the [kuat](drink)
+    - Get the [fanta](drink)
+    - Grab the [milk](drink)
+    - Bring me the [orange juice](drink)
+    - I want the [coke](drink)
+    - Can you get the [coffee](drink)?
+    - Please bring the [kuat](drink)
+    - Get me a [fanta](drink)
+    - I need the [milk](drink)
+    - Fetch the [orange juice](drink)
+    - Pick up the [coke](drink)
+    - Bring the [coffee](drink)
+
+- intent: pick_fruit
+  examples: |
+    - Pick the [lime](fruit)
+    - Get the [tangerine](fruit)
+    - Grab the [pear](fruit)
+    - Bring me the [lemon](fruit)
+    - I want the [apple](fruit)
+    - Can you get the [lime](fruit)?
+    - Please bring the [tangerine](fruit)
+    - Get me a [pear](fruit)
+    - I need the [lemon](fruit)
+    - Fetch the [apple](fruit)
+    - Pick up the [lime](fruit)
+    - Bring the [tangerine](fruit)
+
+- intent: pick_snack
+  examples: |
+    - Pick the [pringles](snack)
+    - Get the [cornflakes](snack)
+    - Grab the [cheese_snack](snack)
+    - Bring me the [peanuts](snack)
+    - I want the [gum_balls](snack)
+    - Can you get the [crisps](snack)?
+    - Please bring the [chocolate_bar](snack)
+    - Get me some [pringles](snack)
+    - I need the [cornflakes](snack)
+    - Fetch the [cheese_snack](snack)
+    - Pick up the [peanuts](snack)
+    - Bring the [gum_balls](snack)
+    - Get the [crisps](snack)
+    - I want some [chocolate_bar](snack)
+
+- intent: pick_food
+  examples: |
+    - Pick the [corn_flour](food)
+    - Get the [ketchup](food)
+    - Grab the [broth](food)
+    - Bring me the [oats](food)
+    - I want the [mayo](food)
+    - Can you get the [tuna](food)?
+    - Please bring the [corn_flour](food)
+    - Get me some [ketchup](food)
+    - I need the [broth](food)
+    - Fetch the [oats](food)
+    - Pick up the [mayo](food)
+    - Bring the [tuna](food)
+
+- intent: pick_dish
+  examples: |
+    - Pick the [cup](dish)
+    - Get the [bowl](dish)
+    - Grab the [fork](dish)
+    - Bring me the [plate](dish)
+    - I want the [knife](dish)
+    - Can you get the [spoon](dish)?
+    - Please bring the [cup](dish)
+    - Get me a [bowl](dish)
+    - I need the [fork](dish)
+    - Fetch the [plate](dish)
+    - Pick up the [knife](dish)
+    - Bring the [spoon](dish)
+
+- intent: pick_cleaning_supply
+  examples: |
+    - Pick the [polish](cleaning_supply)
+    - Get the [cloth](cleaning_supply)
+    - Grab the [brush](cleaning_supply)
+    - Bring me the [sponge](cleaning_supply)
+    - I want the [polish](cleaning_supply)
+    - Can you get the [cloth](cleaning_supply)?
+    - Please bring the [brush](cleaning_supply)
+    - Get me a [sponge](cleaning_supply)
+    - I need the [polish](cleaning_supply)
+    - Fetch the [cloth](cleaning_supply)
+    - Pick up the [brush](cleaning_supply)
+    - Bring the [sponge](cleaning_supply)
 
 # QA Questions
 - intent: general_qa1
@@ -318,4 +465,92 @@ nlu:
 - intent: general_qa25
   examples: |
     - What does the acronym GNU represent?
+
+- intent: ask_about_bahia
+  examples: |
+    - Tell me about Bahia
+    - What can you tell me about Bahia?
+    - I want to know about Bahia
+    - Can you give me information about Bahia?
+    - What do you know about Bahia?
+    - Tell me something about Bahia
+    - I'm interested in Bahia
+    - What about Bahia?
+
+- intent: bahia_facts
+  examples: |
+    - Give me facts about Bahia
+    - Tell me interesting facts about Bahia
+    - What are some facts about Bahia?
+    - Share some Bahia facts
+    - I want to know facts about Bahia
+    - Tell me something interesting about Bahia
+    - What's interesting about Bahia?
+    - Give me some information about Bahia
+
+- intent: bahia_geography
+  examples: |
+    - What is Bahia's geography like?
+    - Tell me about Bahia's geography
+    - What about Bahia's terrain?
+    - Describe Bahia's landscape
+    - What is the geography of Bahia?
+    - Tell me about the relief of Bahia
+    - What's the terrain like in Bahia?
+    - How is Bahia's geography?
+
+- intent: bahia_climate
+  examples: |
+    - What is Bahia's climate like?
+    - Tell me about Bahia's climate
+    - What's the weather like in Bahia?
+    - How is the climate in Bahia?
+    - What about Bahia's weather?
+    - Describe Bahia's climate
+    - What are the climate types in Bahia?
+    - Tell me about the weather in Bahia
+
+- intent: bahia_economy
+  examples: |
+    - What is Bahia's economy like?
+    - Tell me about Bahia's economy
+    - How is the economy in Bahia?
+    - What about Bahia's economic situation?
+    - Describe Bahia's economy
+    - What are the main economic sectors in Bahia?
+    - Tell me about the economic development of Bahia
+    - How does Bahia's economy work?
+
+- intent: ask_interested_in
+  examples: |
+    - I'm interested in robotics, science and cooking
+    - I like fishing
+    - Sewing
+    - I'm interested in music
+    - I enjoy reading books
+    - I'm passionate about sports
+    - I love gardening
+    - I'm into photography
+    - I enjoy traveling
+    - I'm interested in art
+    - I like programming
+    - I enjoy hiking
+    - I'm passionate about dancing
+    - I love playing guitar
+    - I'm interested in history
+    - I enjoy learning languages
+    - I like painting
+    - I'm into fitness
+    - I enjoy board games
+    - I'm interested in astronomy
+    - I like woodworking
+    - I enjoy meditation
+    - I'm passionate about environmental issues
+    - I love animals
+    - I'm interested in philosophy
+    - My hobbies are reading and swimming
+    - I'm passionate about technology
+    - I enjoy volunteer work
+    - I like collecting coins
+    - I'm interested in different cultures
 
