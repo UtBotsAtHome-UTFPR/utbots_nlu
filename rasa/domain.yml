@@ -64,6 +64,7 @@ entities:
   - food
   - dish
   - cleaning_supply
+  - topic
 
 slots:
   room:

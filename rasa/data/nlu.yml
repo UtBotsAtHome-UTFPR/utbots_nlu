@@ -523,34 +523,44 @@ nlu:
 
 - intent: ask_interested_in
   examples: |
-    - I'm interested in robotics, science and cooking
-    - I like fishing
-    - Sewing
-    - I'm interested in music
-    - I enjoy reading books
-    - I'm passionate about sports
-    - I love gardening
-    - I'm into photography
-    - I enjoy traveling
-    - I'm interested in art
-    - I like programming
-    - I enjoy hiking
-    - I'm passionate about dancing
-    - I love playing guitar
-    - I'm interested in history
-    - I enjoy learning languages
-    - I like painting
-    - I'm into fitness
-    - I enjoy board games
-    - I'm interested in astronomy
-    - I like woodworking
-    - I enjoy meditation
-    - I'm passionate about environmental issues
-    - I love animals
-    - I'm interested in philosophy
-    - My hobbies are reading and swimming
-    - I'm passionate about technology
-    - I enjoy volunteer work
-    - I like collecting coins
-    - I'm interested in different cultures
+    - I'm interested in [robotics](topic), [science](topic) and [cooking](topic)
+    - I like [fishing](topic)
+    - [Sewing](topic)
+    - I'm interested in [music](topic)
+    - I enjoy reading [books](topic)
+    - I'm passionate about [sports](topic)
+    - I love [gardening](topic)
+    - I'm into [photography](topic)
+    - I enjoy [traveling](topic)
+    - I'm interested in [art](topic)
+    - I like [programming](topic)
+    - I enjoy [hiking](topic)
+    - I'm passionate about [dancing](topic)
+    - I love playing [guitar](topic)
+    - I'm interested in [history](topic)
+    - I enjoy learning [languages](topic)
+    - I like [painting](topic)
+    - I'm into [fitness](topic)
+    - I enjoy [board games](topic)
+    - I'm interested in [astronomy](topic)
+    - I like [woodworking](topic)
+    - I enjoy [meditation](topic)
+    - I'm passionate about [environmental issues](topic)
+    - I love [animals](topic)
+    - I'm interested in [philosophy](topic)
+    - My hobbies are [reading](topic) and [swimming](topic)
+    - I'm passionate about [technology](topic)
+    - I enjoy [volunteer work](topic)
+    - I like collecting [coins](topic)
+    - I'm interested in different [cultures](topic)
+    - I'm into [cooking](topic)
+    - I love [movies](topic)
+    - I enjoy [video games](topic)
+    - I'm passionate about [fashion](topic)
+    - I like [fishing](topic) and [camping](topic)
+    - I'm interested in [cars](topic)
+    - I enjoy [knitting](topic)
+    - I love [theater](topic)
+    - I'm into [chess](topic)
+    - I enjoy [cycling](topic)
 
