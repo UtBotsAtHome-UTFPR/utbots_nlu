@@ -24,7 +24,8 @@ This package must be used alongside the [utbots_dependencies](https://github.com
 cd ~/<ros2_ws>/src
 git clone https://github.com/UtBotsAtHome-UTFPR/utbots_dependencies.git
 cd ..
-colcon build
+colcon build --packages-select utbots_nlu utbots_actions utbots_srvs utbots_msgs \
+--allow-overriding utbots_msgs utbots_actions utbots_srvs \
 ```
 
 #### Python
