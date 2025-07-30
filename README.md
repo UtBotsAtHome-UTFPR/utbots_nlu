@@ -27,13 +27,22 @@ cd ..
 colcon build
 ```
 
-The code runs on Python 3 and you must use a virtualenv (Install with `pip install virtualenv`) with the path `/usr/bin/venv_utbots_nlu/bin/python` as the node expects its existence to run.. Install RASA and other Python requirements:
+#### Python
+To avoid conflicts between package dependencies, we use virtual environments. Change the virtuelenv path in the `executable` field in `setup.cfg`. *Not the ideal solution, but the current one while we don't use Docker*.
+
+If you haven't installed `virtualenv`:
+```bash
+pip3 install virtualenv
+```
+
+Create and activate env:
+```bash
+python -m virtualenv <env_path>
+source <env_path>/bin/activate
+```
 
 ```bash
-cd /usr/bin
-sudo python3 -m virtualenv venv_utbots_nlu --python=$(which python3)
-roscd utbots_nlu
-/usr/bin/venv_utbots_nlu/bin/python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Running
@@ -42,13 +51,7 @@ roscd utbots_nlu
 
 To run interface RASA, you first must enable the node for listening to STT text, that must be done sending an empty goal to the action server. Then, when an STT callback occurs, it will process the text and output the result, disabling the NLU wait for STT text. If the intention detected is a verbal response, it will publish in the TTS topic. If the intention detected is an operator command, it will return in the results a Task information and a Data information for task-associated data. In both cases, the NLU input and output are sent as results, for log purposes.
 
-First, initialize ROS (if not already):
-
-```bash
-roscore
-```
-
-Then, run the node:
+Run the node:
 
 ```bash
 ros2 utbots_nlu rasa_nlu_interpreter.py
@@ -59,24 +62,13 @@ ros2 utbots_nlu rasa_nlu_interpreter.py
 Every new NLU process must be enabled with an action cal. The enable control can be made inside a script with an ActionClient. To enable in the terminal:
 
 ```bash
-rostopic pub /interpret_nlu/goal utbots_actions/InterpretNLUActionGoal "header:  
-  seq: 0
-  stamp:
-    secs: 0
-    nsecs: 0
-  frame_id: ''
-goal_id:
-  stamp:
-    secs: 0
-    nsecs: 0
-  id: ''
-goal: {}"               
+ros2 action send_goal /interpret_nlu utbots_actions/action/InterpretNLUAction "{}"     
 ```
 
 Then it starts to wait for an STT callback. To test in the terminal, change the `<nlu input>`:
 
 ```bash
-rostopic pub /utbots/voice/stt/whispered std_msgs/String "<nlu input>"   
+ros2 topic pub /utbots/voice/stt/whispered std_msgs/msg/String "data: <nlu input>'"
 ```
 
 To see the action result in the terminal:
@@ -96,13 +88,13 @@ ros2 topic echo /interpret_nlu/result
 ### Train
 To train a new model, in the terminal:
 ```bash
-roscd utbots_nlu
+cd utbots_nlu
 rasa train
 ```
 
 ### Debugging dialog
 A dialog with the RASA tool can be done without ROS, in the terminal:
 ```bash
-roscd utbots_nlu
+cd utbots_nlu
 rasa shell
 ```
