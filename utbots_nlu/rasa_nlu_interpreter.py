@@ -99,20 +99,40 @@ class RasaNLUInterpreter(Node):
 
         if self.nlu_interpreter:
             try:
-                # Parse the input text using the RASA NLU interpreter
+                # Parse the input text using the RASA NLU interpreter (for intent and entities)
                 rasa_output = asyncio.run(self.nlu_interpreter.parse_message(goal.request.nlu_input.data))
+
+                # Get the full response using handle_text (includes bot responses)
+                response_messages = asyncio.run(self.nlu_interpreter.handle_text(goal.request.nlu_input.data))
 
                 # Format the entities and intent for the result
                 entities_list = rasa_output.get('entities', [])
                 intent = rasa_output.get('intent', {}).get('name', '')
 
-                result.nlu_output.data = json.dumps(rasa_output) # Keep the full output if needed for debugging
+                # Extract the bot response text
+                bot_response = ""
+                if response_messages:
+                    # Get the last message text from the response
+                    for message in response_messages:
+                        if message.get('text'):
+                            bot_response = message.get('text')
+
+                result.nlu_output.data = json.dumps(rasa_output) # Keep the full NLU output for debugging
                 result.task.data = intent
                 result.data.data = json.dumps(entities_list)
+                
+                # Add bot response to the dedicated bot_response field
+                if bot_response:
+                    result.bot_response.data = bot_response
+                    self.get_logger().info(f"Bot Response: {bot_response}")
+                else:
+                    result.bot_response.data = "No response generated"
+
                 if(self.verbose):
-                    self.get_logger().info(f"RASA NLU Output: {result.nlu_output.data}")
+                    self.get_logger().info(f"RASA NLU Output: {rasa_output}")
                     self.get_logger().info(f"Intent: {intent}")
                     self.get_logger().info(f"Entities: {entities_list}")
+                    self.get_logger().info(f"Bot Response: {bot_response}")
 
                 # Indicate successful completion of the goal
                 goal.succeed()

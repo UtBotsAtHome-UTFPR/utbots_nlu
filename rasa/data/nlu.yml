@@ -34,6 +34,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yes, it is
 
 - intent: deny
   examples: |
@@ -45,6 +46,7 @@ nlu:
     - no way
     - not really
     - i'm not
+    - no, it isn't
 
 - intent: mood_great
   examples: |
@@ -193,14 +195,22 @@ nlu:
     - I enjoy [ice tea](object)
     - I like [water](object)
     - I enjoy [water](object)
-    - I like [milk](object)
-    - I enjoy [milk](object)
+    - I like [milk](drink)
+    - I enjoy [milk](drink)
     - I like [big coke](object)
     - I enjoy [big coke](object)
-    - I like [fanta](object)
-    - I enjoy [fanta](object)
+    - I like [fanta](drink)
+    - I enjoy [fanta](drink)
     - I like [dubbelfris](object)
     - I enjoy [dubbelfris](object)
+    - I like [kuat](drink)
+    - I enjoy [kuat](drink)
+    - I like [orange juice](drink)
+    - I enjoy [orange juice](drink)
+    - I like [coke](drink)
+    - I enjoy [coke](drink)
+    - I like [coffee](drink)
+    - I enjoy [coffee](drink)
 
 - intent: pick_object
   examples: |
@@ -322,4 +332,102 @@ nlu:
 - intent: general_qa25
   examples: |
     - What does the acronym GNU represent?
+
+- intent: ask_about_bahia
+  examples: |
+    - Tell me about Bahia
+    - What can you tell me about Bahia?
+    - I want to know about Bahia
+    - Can you give me information about Bahia?
+    - What do you know about Bahia?
+    - Tell me something about Bahia
+    - I'm interested in Bahia
+    - What about Bahia?
+
+- intent: bahia_facts
+  examples: |
+    - Give me facts about Bahia
+    - Tell me interesting facts about Bahia
+    - What are some facts about Bahia?
+    - Share some Bahia facts
+    - I want to know facts about Bahia
+    - Tell me something interesting about Bahia
+    - What's interesting about Bahia?
+    - Give me some information about Bahia
+
+- intent: bahia_geography
+  examples: |
+    - What is Bahia's geography like?
+    - Tell me about Bahia's geography
+    - What about Bahia's terrain?
+    - Describe Bahia's landscape
+    - What is the geography of Bahia?
+    - Tell me about the relief of Bahia
+    - What's the terrain like in Bahia?
+    - How is Bahia's geography?
+
+- intent: bahia_climate
+  examples: |
+    - What is Bahia's climate like?
+    - Tell me about Bahia's climate
+    - What's the weather like in Bahia?
+    - How is the climate in Bahia?
+    - What about Bahia's weather?
+    - Describe Bahia's climate
+    - What are the climate types in Bahia?
+    - Tell me about the weather in Bahia
+
+- intent: bahia_economy
+  examples: |
+    - What is Bahia's economy like?
+    - Tell me about Bahia's economy
+    - How is the economy in Bahia?
+    - What about Bahia's economic situation?
+    - Describe Bahia's economy
+    - What are the main economic sectors in Bahia?
+    - Tell me about the economic development of Bahia
+    - How does Bahia's economy work?
+
+- intent: ask_interested_in
+  examples: |
+    - I'm interested in [robotics](topic), [science](topic) and [cooking](topic)
+    - I like [fishing](topic)
+    - [Sewing](topic)
+    - I'm interested in [music](topic)
+    - I enjoy reading [books](topic)
+    - I'm passionate about [sports](topic)
+    - I love [gardening](topic)
+    - I'm into [photography](topic)
+    - I enjoy [traveling](topic)
+    - I'm interested in [art](topic)
+    - I like [programming](topic)
+    - I enjoy [hiking](topic)
+    - I'm passionate about [dancing](topic)
+    - I love playing [guitar](topic)
+    - I'm interested in [history](topic)
+    - I enjoy learning [languages](topic)
+    - I like [painting](topic)
+    - I'm into [fitness](topic)
+    - I enjoy [board games](topic)
+    - I'm interested in [astronomy](topic)
+    - I like [woodworking](topic)
+    - I enjoy [meditation](topic)
+    - I'm passionate about [environmental issues](topic)
+    - I love [animals](topic)
+    - I'm interested in [philosophy](topic)
+    - My hobbies are [reading](topic) and [swimming](topic)
+    - I'm passionate about [technology](topic)
+    - I enjoy [volunteer work](topic)
+    - I like collecting [coins](topic)
+    - I'm interested in different [cultures](topic)
+    - I'm into [cooking](topic)
+    - I love [movies](topic)
+    - I enjoy [video games](topic)
+    - I'm passionate about [fashion](topic)
+    - I like [fishing](topic) and [camping](topic)
+    - I'm interested in [cars](topic)
+    - I enjoy [knitting](topic)
+    - I love [theater](topic)
+    - I'm into [chess](topic)
+    - I enjoy [cycling](topic)
 
